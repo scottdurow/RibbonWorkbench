@@ -234,3 +234,22 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/Develop1SmartButtons/CrmPackage/WebResources/js/ClientHooks.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/mscorlib.debug.js
+/Develop1SmartButtons/CrmPackage/WebResources/js/SparkleXrmUI.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/SparkleXrm.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/Slick.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.Web.xml
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.Web.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.Knockout.xml
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.Knockout.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.jQuery.xml
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.jQuery.UI.xml
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.jQuery.UI.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/Script.jQuery.dll
+/Develop1SmartButtons/CrmPackage/WebResources/js/mscorlib.xml
+/Develop1SmartButtons/CrmPackage/WebResources/js/mscorlib.js
+/Develop1SmartButtons/CrmPackage/WebResources/js/mscorlib.dll
+/Develop1SmartButtons/SmartButtons.ClientHooks/SDK
+/Develop1SmartButtons/SmartButtons.ClientHooks/NumberEx.cs
+/Develop1SmartButtons/SmartButtons.ClientHooks/DateTimeEx.cs
