@@ -183,11 +183,16 @@ namespace SmartButtons.ClientHooks
         [PreserveCase]
         public static void WaitForWorkflowToComplete(string asyncoperationid, string callbackFunction, string errorCallback, DateTime startTime)
         {
+            //Realtime workflow. No need to check asyncoperation result
+            if(asyncoperationid === "00000000-0000-0000-0000-000000000000"){
+                Script.Eval(callbackFunction);
+                return;
+            }
+            
             if (startTime == null)
             {
                 startTime = DateTime.Now;
             }
-
             OrganizationServiceProxy.BeginRetrieve("asyncoperation", asyncoperationid, new string[] { "statecode", "statuscode" }, delegate (object state)
                  {
 
