@@ -114,13 +114,13 @@ namespace SmartButtons.ClientHooks
             }
         }
         [PreserveCase]
-        public static void RunWorkflowSingle(string name, string[] entityIds, string confirmationMessage, string completeCallback, string errorCalback)
+        public static void RunWorkflowSingle(string name, string[] entityIds, string confirmationMessage, string completeCallback, string errorCallback)
         {
             if (!String.IsNullOrEmpty(confirmationMessage))
             {
                 Utility.ConfirmDialog(confirmationMessage, delegate ()
                 {
-                    RunWorkflowSingle(name, entityIds, null, completeCallback, errorCalback);
+                    RunWorkflowSingle(name, entityIds, null, completeCallback, errorCallback);
 
                 }, null);
                 return;
@@ -128,8 +128,8 @@ namespace SmartButtons.ClientHooks
             else
             {
                 foreach (string entityId in entityIds)
-                { 
-                    RunWorkflow(name, entityId, completeCallback, errorCalback);
+                {
+                    RunWorkflow(name, entityId, completeCallback, errorCallback);
                 }
             }
 
@@ -137,7 +137,7 @@ namespace SmartButtons.ClientHooks
 
         }
         [PreserveCase]
-        public static void RunWorkflow(string name, string entityId, string completeCallback, string errorCalback)
+        public static void RunWorkflow(string name, string entityId, string completeCallback, string errorCallback)
         {
 
 
@@ -158,21 +158,41 @@ namespace SmartButtons.ClientHooks
             OrganizationServiceProxy.BeginRetrieveMultiple(fetch, delegate (object state)
              {
                  EntityCollection results = OrganizationServiceProxy.EndRetrieveMultiple(state, typeof(Entity));
-
+                 if (results.Entities.Count == 0)
+                 {
+                     Page.Ui.SetFormNotification("Workflow " + name + " is not published", FormNotificationLevel.Error, "RibbonWorkflowError");
+                 }
+                 bool isError = false;
                  foreach (Entity row in results.Entities)
                  {
                      // Run Workflow
                      ExecuteWorkflowRequest request = new ExecuteWorkflowRequest();
                      request.EntityId = entityId.Replace("{", "").Replace("}", "");
                      request.WorkflowId = row.GetAttributeValueString("workflowid");
-                     OrganizationServiceProxy.BeginExecute(request, delegate (object executeState)
+                     OrganizationServiceProxy.BeginExecute(request, delegate(object executeState)
                      {
-                         ExecuteWorkflowResponse response = (ExecuteWorkflowResponse)OrganizationServiceProxy.EndExecute(executeState);
-
-                         if (completeCallback != null)
+                         try
                          {
-                             // Query until completed
-                             WaitForWorkflowToComplete(response.Id, completeCallback, errorCalback, null);
+                             ExecuteWorkflowResponse response =
+                                 (ExecuteWorkflowResponse)OrganizationServiceProxy.EndExecute(executeState);
+                             if (completeCallback != null)
+                             {
+                                 if (response.Id == Guid.Empty.Value)
+                                 {
+                                     Script.Eval(completeCallback);
+                                 }
+                                 else
+                                 {
+                                     // Query until completed
+                                     WaitForWorkflowToComplete(response.Id, completeCallback, errorCallback, null);
+                                 }
+                             }
+                         }
+                         catch (Exception e)
+                         {
+                             string stackTrace = e.StackTrace;
+                             Script.Literal("console.log(stackTrace)");
+                             Script.Eval(errorCallback);
                          }
 
                      });
@@ -183,16 +203,11 @@ namespace SmartButtons.ClientHooks
         [PreserveCase]
         public static void WaitForWorkflowToComplete(string asyncoperationid, string callbackFunction, string errorCallback, DateTime startTime)
         {
-            //Realtime workflow. No need to check asyncoperation result
-            if(asyncoperationid === "00000000-0000-0000-0000-000000000000"){
-                Script.Eval(callbackFunction);
-                return;
-            }
-            
             if (startTime == null)
             {
                 startTime = DateTime.Now;
             }
+
             OrganizationServiceProxy.BeginRetrieve("asyncoperation", asyncoperationid, new string[] { "statecode", "statuscode" }, delegate (object state)
                  {
 
