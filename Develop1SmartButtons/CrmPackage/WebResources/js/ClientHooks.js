@@ -2141,10 +2141,10 @@ SmartButtons.ClientHooks.SmartButtons.RunWorkflowMultiple = function SmartButton
         SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle(name, [ entityId ], null, completeCallback, errorCalback);
     }
 }
-SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle = function SmartButtons_ClientHooks_SmartButtons$RunWorkflowSingle(name, entityIds, confirmationMessage, completeCallback, errorCalback) {
+SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle = function SmartButtons_ClientHooks_SmartButtons$RunWorkflowSingle(name, entityIds, confirmationMessage, completeCallback, errorCallback) {
     if (!String.isNullOrEmpty(confirmationMessage)) {
         Xrm.Utility.confirmDialog(confirmationMessage, function() {
-            SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle(name, entityIds, null, completeCallback, errorCalback);
+            SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle(name, entityIds, null, completeCallback, errorCallback);
         }, null);
         return;
     }
@@ -2152,14 +2152,18 @@ SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle = function SmartButtons_
         var $enum1 = ss.IEnumerator.getEnumerator(entityIds);
         while ($enum1.moveNext()) {
             var entityId = $enum1.current;
-            SmartButtons.ClientHooks.SmartButtons.RunWorkflow(name, entityId, completeCallback, errorCalback);
+            SmartButtons.ClientHooks.SmartButtons.RunWorkflow(name, entityId, completeCallback, errorCallback);
         }
     }
 }
-SmartButtons.ClientHooks.SmartButtons.RunWorkflow = function SmartButtons_ClientHooks_SmartButtons$RunWorkflow(name, entityId, completeCallback, errorCalback) {
+SmartButtons.ClientHooks.SmartButtons.RunWorkflow = function SmartButtons_ClientHooks_SmartButtons$RunWorkflow(name, entityId, completeCallback, errorCallback) {
     var fetch = String.format("<fetch count='1'>\r\n                       <entity name='workflow'>\r\n                           <attribute name='workflowid'/>\r\n                           <filter type='and'>\r\n                               <condition attribute='name' operator='eq' value='{0}'/>\r\n                               <condition attribute='ondemand' operator='eq' value='true'/>\r\n                               <condition attribute='statuscode' operator='eq' value='2'/> \r\n                               <condition attribute='type' operator='eq' value='1'/>     \r\n                           </filter>\r\n                       </entity>\r\n                   </fetch>", name);
     Xrm.Sdk.OrganizationServiceProxy.beginRetrieveMultiple(fetch, function(state) {
         var results = Xrm.Sdk.OrganizationServiceProxy.endRetrieveMultiple(state, Xrm.Sdk.Entity);
+        if (!results.get_entities().get_count()) {
+            Xrm.Page.ui.setFormNotification('Workflow ' + name + ' is not published', 'ERROR', 'RibbonWorkflowError');
+        }
+        var isError = false;
         var $enum1 = ss.IEnumerator.getEnumerator(results.get_entities());
         while ($enum1.moveNext()) {
             var row = $enum1.current;
@@ -2167,9 +2171,21 @@ SmartButtons.ClientHooks.SmartButtons.RunWorkflow = function SmartButtons_Client
             request.entityId = entityId.replaceAll('{', '').replaceAll('}', '');
             request.workflowId = row.getAttributeValueString('workflowid');
             Xrm.Sdk.OrganizationServiceProxy.beginExecute(request, function(executeState) {
-                var response = Xrm.Sdk.OrganizationServiceProxy.endExecute(executeState);
-                if (completeCallback != null) {
-                    SmartButtons.ClientHooks.SmartButtons.WaitForWorkflowToComplete(response.id, completeCallback, errorCalback, null);
+                try {
+                    var response = Xrm.Sdk.OrganizationServiceProxy.endExecute(executeState);
+                    if (completeCallback != null) {
+                        if (response.id === Xrm.Sdk.Guid.empty.value) {
+                            eval(completeCallback);
+                        }
+                        else {
+                            SmartButtons.ClientHooks.SmartButtons.WaitForWorkflowToComplete(response.id, completeCallback, errorCallback, null);
+                        }
+                    }
+                }
+                catch (e) {
+                    var stackTrace = e.stack;
+                    console.log(stackTrace);
+                    eval(errorCallback);
                 }
             });
             break;

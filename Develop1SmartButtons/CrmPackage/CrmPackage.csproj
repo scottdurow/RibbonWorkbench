@@ -67,23 +67,23 @@
   </ItemGroup>
   <ItemGroup>
     <CRMWebResource Include="WebResources\images\quickjs16.png">
-      <DisplayName>dev1_/js/SmartButtons.quickjs16.js</DisplayName>
-      <UniqueName>dev1_/js/SmartButtons.quickjs16.js</UniqueName>
+      <DisplayName>dev1_/images/quickjs16.png</DisplayName>
+      <UniqueName>dev1_/images/quickjs16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
     <CRMWebResource Include="WebResources\images\rundialog16.png">
-      <DisplayName>dev1_/js/SmartButtons.rundialog16.js</DisplayName>
-      <UniqueName>dev1_/js/SmartButtons.rundialog16.js</UniqueName>
+      <DisplayName>dev1_/images/rundialog16.png</DisplayName>
+      <UniqueName>dev1_/images/rundialog16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
     <CRMWebResource Include="WebResources\images\runreport16.png">
-      <DisplayName>dev1_/js/SmartButtons.runreport16.js</DisplayName>
-      <UniqueName>dev1_/js/SmartButtons.runreport16.js</UniqueName>
+      <DisplayName>dev1_/images/runreport16.png</DisplayName>
+      <UniqueName>dev1_/images/runreport16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
     <CRMWebResource Include="WebResources\images\runworkflow16.png">
-      <DisplayName>dev1_/js/SmartButtons.runworkflow16.js</DisplayName>
-      <UniqueName>dev1_/js/SmartButtons.runworkflow16.js</UniqueName>
+      <DisplayName>dev1_/images/runworkflow16.png</DisplayName>
+      <UniqueName>dev1_/images/runworkflow16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
     <CRMWebResource Include="WebResources\js\ClientHooks.js">
