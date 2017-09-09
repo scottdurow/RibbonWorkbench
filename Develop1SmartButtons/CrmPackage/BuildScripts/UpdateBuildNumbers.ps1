@@ -74,32 +74,11 @@ switch($VersionData.Count)
 $NewVersion = $VersionData[0]
 Write "Version: $NewVersion"
 
-# Apply the version to the assembly property files
-$files = gci $Env:BUILD_SOURCESDIRECTORY\RWB2016\Develop1.XrmTBPlugin.RibbonWorkbench2016 -recurse -include "*Properties*","My Project" | 
-    ?{ $_.PSIsContainer } | 
-    foreach { gci -Path $_.FullName -Recurse -include AssemblyInfo.* }
-if($files)
-{
-    Write-Verbose "Will apply $NewVersion to $($files.count) files."
-
-    foreach ($file in $files) {
-        Write "$file"
-        $filecontent = Get-Content($file)
-        attrib $file -r
-        $filecontent -replace $VersionRegex, $NewVersion | Out-File $file
-        Write-Verbose "$file.FullName - version applied"
-    }
-}
-else
-{
-    Write-Warning "Found no assembly files."
-}
-
 
 # Apply the version to the solution xml
 $VersionRegex = "<Version>\d+\.\d+\.\d+\.\d+</Version>"
 
-$files = gci $Env:BUILD_SOURCESDIRECTORY\RWB2016\CrmPackage\2016_3\Other -recurse -include Solution.xml 
+$files = gci $Env:BUILD_SOURCESDIRECTORY\Develop1SmartButtons\CrmPackage\package\Other -recurse -include Solution.xml 
 if($files)
 {
     Write-Verbose "Will apply $NewVersion to $($files.count) files."
@@ -120,7 +99,7 @@ else
 # Apply the version to the javascript
 $VersionRegex = "\d+\.\d+\.\d+\.\d+"
 
-$files = gci $Env:BUILD_SOURCESDIRECTORY\RWB2016\ClientUI\Properties -recurse -include VersionInfo.js
+$files = gci $Env:BUILD_SOURCESDIRECTORY\Develop1SmartButtons\SmartButtons.ClientHooks\Properties -recurse -include VersionInfo.js
 if($files)
 {
     Write-Verbose "Will apply $NewVersion to $($files.count) files."
