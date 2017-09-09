@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ImportExportXml version="6.1.0000.0581" SolutionPackageVersion="6.0" languagecode="1033" generatedBy="OnPremise" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>Develop1SmartButtons</UniqueName>
