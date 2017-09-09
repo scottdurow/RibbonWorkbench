@@ -20,7 +20,7 @@
     <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\CrmPackage\WebResources\js\</OutputPath>
+    <OutputPath>..\CrmPackage\Webresources\dev1_\js\</OutputPath>
     <DefineConstants>DEBUG;CODE_ANALYSIS;SCRIPTSHARP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,7 +29,7 @@
     </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\CrmPackage\WebResources\js\</OutputPath>
+    <OutputPath>..\CrmPackage\Webresources\dev1_\js\</OutputPath>
     <DefineConstants>CODE_ANALYSIS;SCRIPTSHARP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -74,6 +74,11 @@
       <HintPath>..\packages\SparkleXRM.7.2.10\lib\SparkleXrmUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\SparkleXrm.js" />
+    <Content Include="Properties\ss.js" />
+    <Content Include="Properties\VersionInfo.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,28 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{88A30576-7583-4F75-8136-5EFD2C14ADFF}") = "CrmPackage", "CrmPackage\CrmPackage.csproj", "{5CF0E86A-4EFF-4236-9F59-4974336B8BB3}"
 	ProjectSection(ProjectDependencies) = postProject
-		{EDC73312-5D30-496E-9925-892A6DDED2AC} = {EDC73312-5D30-496E-9925-892A6DDED2AC}
 		{864AD640-C2A4-496E-ACE1-8ACCE6011EED} = {864AD640-C2A4-496E-ACE1-8ACCE6011EED}
-		{3B9D6B7A-A938-4054-B004-525C0F97C5DB} = {3B9D6B7A-A938-4054-B004-525C0F97C5DB}
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02} = {C70F1EA9-68E5-469C-87E2-3051FDDBAC02}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develop1SmartButtonsPlugins", "Develop1SmartButtonsPlugins\Develop1SmartButtonsPlugins.csproj", "{EDC73312-5D30-496E-9925-892A6DDED2AC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develop1.SmartButtons.Workflows", "Develop1.SmartButtons.Workflows\Develop1.SmartButtons.Workflows.csproj", "{C70F1EA9-68E5-469C-87E2-3051FDDBAC02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartButtons.ClientHooks", "SmartButtons.ClientHooks\SmartButtons.ClientHooks.csproj", "{864AD640-C2A4-496E-ACE1-8ACCE6011EED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependancies", "Dependancies\Dependancies.csproj", "{3B9D6B7A-A938-4054-B004-525C0F97C5DB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{EDC73312-5D30-496E-9925-892A6DDED2AC} = {EDC73312-5D30-496E-9925-892A6DDED2AC}
-		{864AD640-C2A4-496E-ACE1-8ACCE6011EED} = {864AD640-C2A4-496E-ACE1-8ACCE6011EED}
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02} = {C70F1EA9-68E5-469C-87E2-3051FDDBAC02}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,25 +22,16 @@ Global
 		{5CF0E86A-4EFF-4236-9F59-4974336B8BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CF0E86A-4EFF-4236-9F59-4974336B8BB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CF0E86A-4EFF-4236-9F59-4974336B8BB3}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EDC73312-5D30-496E-9925-892A6DDED2AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDC73312-5D30-496E-9925-892A6DDED2AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDC73312-5D30-496E-9925-892A6DDED2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDC73312-5D30-496E-9925-892A6DDED2AC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C70F1EA9-68E5-469C-87E2-3051FDDBAC02}.Release|Any CPU.Build.0 = Release|Any CPU
 		{864AD640-C2A4-496E-ACE1-8ACCE6011EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{864AD640-C2A4-496E-ACE1-8ACCE6011EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864AD640-C2A4-496E-ACE1-8ACCE6011EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864AD640-C2A4-496E-ACE1-8ACCE6011EED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B9D6B7A-A938-4054-B004-525C0F97C5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B9D6B7A-A938-4054-B004-525C0F97C5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B9D6B7A-A938-4054-B004-525C0F97C5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B9D6B7A-A938-4054-B004-525C0F97C5DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B70FB5BD-21C6-4FA3-95BC-DF5A72EDECB0}
 	EndGlobalSection
 	GlobalSection(CRMSolutionProperties) = preSolution
 		SolutionIsBoundToCRM = True

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{98741b58-f707-e711-81eb-00155d38010a}</WebResourceId>
+  <Name>dev1_/images/runreport16.png</Name>
+  <DisplayName>dev1_/images/runreport16.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/dev1_imagesrunreport16png98741B58-F707-E711-81EB-00155D38010A</FileName>
+</WebResource>

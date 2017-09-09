@@ -162,7 +162,7 @@ namespace SmartButtons.ClientHooks
                  {
                      Page.Ui.SetFormNotification("Workflow " + name + " is not published", FormNotificationLevel.Error, "RibbonWorkflowError");
                  }
-                 bool isError = false;
+                
                  foreach (Entity row in results.Entities)
                  {
                      // Run Workflow

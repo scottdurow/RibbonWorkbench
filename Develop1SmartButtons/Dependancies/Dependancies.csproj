@@ -59,9 +59,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName)==Debug (
-xcopy "$(ProjectDir)..\CrmPackage\WebResources\js\ClientHooks.debug.js" "$(ProjectDir)..\CrmPackage\WebResources\js\ClientHooks.js" /y /i /o
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

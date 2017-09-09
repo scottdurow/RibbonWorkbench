@@ -5,8 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>5cf0e86a-4eff-4236-9f59-4974336b8bb3</ProjectGuid>
-    <ProjectTypeGuids>{88A30576-7583-4F75-8136-5EFD2C14ADFF}</ProjectTypeGuids>
+    <ProjectGuid>{5CF0E86A-4EFF-4236-9F59-4974336B8BB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Develop1SmartButtons.CrmPackage</RootNamespace>
@@ -41,63 +40,64 @@
     </PreBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="WebResources\js" />
-    <Folder Include="WebResources\html" />
-    <Folder Include="WebResources\images" />
-    <RegisterPlugin Include="RegisterFile.crmregister">
-      <DisplayName>RegisterFile</DisplayName>
-      <UniqueName>dev1_RegisterFile</UniqueName>
-      <WebResourceType>NotSupported</WebResourceType>
-    </RegisterPlugin>
-    <Folder Include="WebResources" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Develop1.SmartButtons.Workflows\Develop1.SmartButtons.Workflows.csproj">
-      <Name>Develop1.SmartButtons.Workflows</Name>
-      <Project>{c70f1ea9-68e5-469c-87e2-3051fddbac02}</Project>
-      <Private>True</Private>
-      <SilverlightApplication>False</SilverlightApplication>
-    </ProjectReference>
-    <ProjectReference Include="..\Develop1SmartButtonsPlugins\Develop1SmartButtonsPlugins.csproj">
-      <Name>Develop1SmartButtonsPlugins</Name>
-      <Project>{edc73312-5d30-496e-9925-892a6dded2ac}</Project>
-      <Private>True</Private>
-      <SilverlightApplication>False</SilverlightApplication>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <CRMWebResource Include="WebResources\images\quickjs16.png">
+    <CRMWebResource Include="Webresources\dev1_\images\quickjs16.png">
       <DisplayName>dev1_/images/quickjs16.png</DisplayName>
       <UniqueName>dev1_/images/quickjs16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
-    <CRMWebResource Include="WebResources\images\rundialog16.png">
+    <CRMWebResource Include="Webresources\dev1_\images\rundialog16.png">
       <DisplayName>dev1_/images/rundialog16.png</DisplayName>
       <UniqueName>dev1_/images/rundialog16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
-    <CRMWebResource Include="WebResources\images\runreport16.png">
+    <CRMWebResource Include="Webresources\dev1_\images\runreport16.png">
       <DisplayName>dev1_/images/runreport16.png</DisplayName>
       <UniqueName>dev1_/images/runreport16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
-    <CRMWebResource Include="WebResources\images\runworkflow16.png">
+    <CRMWebResource Include="Webresources\dev1_\images\runworkflow16.png">
       <DisplayName>dev1_/images/runworkflow16.png</DisplayName>
       <UniqueName>dev1_/images/runworkflow16.png</UniqueName>
       <WebResourceType>PNG</WebResourceType>
     </CRMWebResource>
-    <CRMWebResource Include="WebResources\js\ClientHooks.js">
+    <CRMWebResource Include="Webresources\dev1_\js\ClientHooks.js">
       <DisplayName>dev1_/js/SmartButtons.ClientHooks.js</DisplayName>
       <UniqueName>dev1_/js/SmartButtons.ClientHooks.js</UniqueName>
       <WebResourceType>Script</WebResourceType>
     </CRMWebResource>
-    <CRMWebResource Include="WebResources\js\develop1_smartbutton_manifest.js">
+    <CRMWebResource Include="Webresources\dev1_\js\develop1_smartbutton_manifest.js">
       <DisplayName>dev1_/js/develop1_smartbutton_manifest.js</DisplayName>
       <UniqueName>dev1_/js/develop1_smartbutton_manifest.js</UniqueName>
       <WebResourceType>Script</WebResourceType>
     </CRMWebResource>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Webresources\dev1_\html\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildScripts\build_pack.bat" />
+    <None Include="BuildScripts\unpack.bat" />
+    <None Include="BuildScripts\UpdateBuildNumbers.ps1" />
+    <None Include="packages.config" />
+    <None Include="spkl.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package\Other\Customizations.xml" />
+    <Content Include="package\Other\Relationships.xml" />
+    <Content Include="package\Other\Solution.xml" />
+    <Content Include="package\WebResources\dev1_\images\quickjs16.png.data.xml" />
+    <Content Include="package\WebResources\dev1_\images\rundialog16.png.data.xml" />
+    <Content Include="package\WebResources\dev1_\images\runreport16.png.data.xml" />
+    <Content Include="package\WebResources\dev1_\images\runworkflow16.png.data.xml" />
+    <Content Include="package\WebResources\dev1_\js\develop1_smartbutton_manifest.js.data.xml" />
+    <Content Include="package\WebResources\dev1_\js\SmartButtons.ClientHooks.js.data.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName)==Debug (
+xcopy "$(ProjectDir)..\CrmPackage\Webresources\dev1_\js\ClientHooks.debug.js" "$(ProjectDir)..\CrmPackage\Webresources\dev1_\js\ClientHooks.js" /y /i /o
+)</PostBuildEvent>
+  </PropertyGroup>
   <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\CRM\Microsoft.CrmDeveloperTools.12.targets" />-->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 			 Other similar extension points exist, see Microsoft.Common.targets.
