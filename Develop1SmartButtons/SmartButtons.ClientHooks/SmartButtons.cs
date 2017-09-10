@@ -60,7 +60,6 @@ namespace SmartButtons.ClientHooks
                            <attribute name='workflowid'/>
                            <filter type='and'>
                                <condition attribute='name' operator='eq' value='{0}'/>
-                               <condition attribute='primaryentityname' operator='eq' value='{1}'/>
                                <condition attribute='ondemand' operator='eq' value='true'/>
                                <condition attribute='statuscode' operator='eq' value='2'/> 
                                <condition attribute='type' operator='eq' value='1'/>     
@@ -90,8 +89,15 @@ namespace SmartButtons.ClientHooks
         [PreserveCase]
         public static void QuickJavascript(string[] entityIds, string javascript)
         {
-            string entityIdStrings = Json.Stringify(entityIds);
-            Script.Eval(javascript.Replace("%ids%", entityIdStrings));
+            try
+            {
+                string entityIdStrings = Json.Stringify(entityIds);
+                Script.Eval(javascript.Replace("%ids%", entityIdStrings));
+            }
+            catch (Exception ex)
+            {
+                Utility.AlertDialog(String.Format(ResourceStrings.JSException, ex.Message),null);
+            }
         }
 
         [PreserveCase]
@@ -160,7 +166,15 @@ namespace SmartButtons.ClientHooks
                  EntityCollection results = OrganizationServiceProxy.EndRetrieveMultiple(state, typeof(Entity));
                  if (results.Entities.Count == 0)
                  {
-                     Page.Ui.SetFormNotification("Workflow " + name + " is not published", FormNotificationLevel.Error, "RibbonWorkflowError");
+                     string message = String.Format(ResourceStrings.WorkflowNotPublished,name);
+                     if (Page.Ui != null)
+                     {
+                         Page.Ui.SetFormNotification(message, FormNotificationLevel.Error, "RibbonWorkflowError");
+                     }
+                     else
+                     {
+                         Utility.AlertDialog(message, null);
+                     }
                  }
                 
                  foreach (Entity row in results.Entities)

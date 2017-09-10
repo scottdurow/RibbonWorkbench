@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildScripts\build_pack.bat" />
+    <None Include="BuildScripts\pack.bat" />
     <None Include="BuildScripts\unpack.bat" />
     <None Include="BuildScripts\UpdateBuildNumbers.ps1" />
     <None Include="packages.config" />
