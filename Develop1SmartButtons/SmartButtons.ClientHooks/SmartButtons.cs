@@ -205,7 +205,7 @@ namespace SmartButtons.ClientHooks
                          catch (Exception e)
                          {
                              string stackTrace = e.StackTrace;
-                             Script.Literal("console.log(stackTrace)");
+                             Debug.WriteLine(stackTrace);
                              Script.Eval(errorCallback);
                          }
 
