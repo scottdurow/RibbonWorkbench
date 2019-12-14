@@ -18,7 +18,6 @@
                 "validOnHomePageGrid": false,
                 "validOnSubGrid": false,
                 "template": {
-
                     "Control": {
                         "__type": "ButtonControl",
                         "DisplayTypeName": "PROPERTIES: ButtonControl",
@@ -252,21 +251,20 @@
                                         "Value": 9
                                     }
 
-
                                 ],
                                 "FunctionName": "SmartButtons.ClientHooks.SmartButtons.RunWorkflowSingle",
                                 "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
                             }
                         ],
                         "DisplayRuleIds": [
-                          
+
                         ],
                         "EnableRuleIds": [
                             "Mscrm.FormStateNotNew"
                         ]
                     },
                     "DisplayRules": [
-                       
+
                     ],
                     "EnableRules": [
                         {
@@ -389,25 +387,24 @@
                                         "Value": 9
                                     }
 
-
                                 ],
                                 "FunctionName": "SmartButtons.ClientHooks.SmartButtons.RunWorkflowMultiple",
                                 "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
                             }
                         ],
                         "DisplayRuleIds": [
-                          
+
                         ],
                         "EnableRuleIds": [
-                           
+
                             "Mscrm.SelectionCountAtLeastOne"
                         ]
                     },
                     "DisplayRules": [
-                       
+
                     ],
                     "EnableRules": [
-                       
+
                         {
                             "Id": "Mscrm.SelectionCountAtLeastOne",
                             "Labels": [],
@@ -612,7 +609,6 @@
                                         "Value": 9
                                     }
 
-
                                 ],
                                 "FunctionName": "SmartButtons.ClientHooks.SmartButtons.RunWebHookSingle",
                                 "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
@@ -645,7 +641,7 @@
                     },
                     {
                         "name": "$command.Actions()[0].Parameters()[0].Value",
-                        "value": "$data.webhookUrl"
+                        "value": "$data.webhookurl"
                     },
                     {
                         "name": "$command.Actions()[0].Parameters()[2].Value",
@@ -749,7 +745,6 @@
                                         "Value": 9
                                     }
 
-
                                 ],
                                 "FunctionName": "SmartButtons.ClientHooks.SmartButtons.RunWebHookMultiple",
                                 "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
@@ -781,7 +776,7 @@
                     },
                     {
                         "name": "$command.Actions()[0].Parameters()[0].Value",
-                        "value": "$data.webhookUrl"
+                        "value": "$data.webhookurl"
                     },
                     {
                         "name": "$command.Actions()[0].Parameters()[2].Value",
@@ -1089,4 +1084,3 @@
     }
 
 ]
-
