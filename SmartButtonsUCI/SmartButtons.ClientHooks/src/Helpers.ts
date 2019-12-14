@@ -52,6 +52,7 @@ namespace SmartButtons.ClientHooks.SmartButtons {
           request.onreadystatechange = null;
           switch (this.status) {
             case 200: // Success with content returned in response body.
+            case 202: // Success accepted.
             case 204: // Success with no content returned in response body.
               resolve(this);
               break;
