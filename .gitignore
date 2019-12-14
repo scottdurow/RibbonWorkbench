@@ -287,3 +287,5 @@ _Pvt_Extensions
 /Develop1SmartButtons/CrmPackage/Webresources/dev1_/js/mscorlib.debug.js
 /Develop1SmartButtons/CrmPackage/Webresources/dev1_/js/ClientHooks.dll
 /Develop1SmartButtons/CrmPackage/Webresources/dev1_/js/ClientHooks.debug.js
+Log*.txt
+/SmartButtonsUCI/SmartButtons.ClientHooks/dist/out

@@ -1,9 +1,0 @@
-//! #= ScriptFile ##
-//
-(function () {
-#include[as-is] "VersionInfo.js"
-#include[as-is] "ss.js"
-#include[as-is] "SparkleXrm.js"
-#include[as-is] "%code%"
-})();
-

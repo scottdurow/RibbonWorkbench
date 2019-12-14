@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WebResource>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <WebResourceId>{af227ce9-64b5-e611-81c5-0800278d9765}</WebResourceId>
   <Name>dev1_/js/SmartButtons.ClientHooks.js</Name>
   <DisplayName>dev1_/js/SmartButtons.ClientHooks.js</DisplayName>
