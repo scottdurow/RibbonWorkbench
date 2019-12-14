@@ -5,10 +5,10 @@
 ##-----------------------------------------------------------------------
 ## <copyright file="ApplyVersionToAssemblies.ps1">(c) Microsoft Corporation. This source is subject to the Microsoft Permissive License. See http://www.microsoft.com/resources/sharedsource/licensingbasics/sharedsourcelicenses.mspx. All other rights reserved.</copyright>
 ##-----------------------------------------------------------------------
-# Look for a 0.0.0.0 pattern in the build number. 
+# Look for a 0.0.0.0 pattern in the build number.
 # If found use it to version the assemblies.
 #
-# For example, if the 'Build number format' build process parameter 
+# For example, if the 'Build number format' build process parameter
 # $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 # then your build numbers come out like this:
 # "Build HelloWorld_2013.07.19.1"
@@ -17,11 +17,11 @@
 # Enable -Verbose option
 [CmdletBinding()]
 
-# Regular expression pattern to find the version in the build number 
+# Regular expression pattern to find the version in the build number
 # and then apply it to the assemblies
 $VersionRegex = "\d+\.\d+\.\d+\.\d+"
 
-# If this script is not running on a build server, remind user to 
+# If this script is not running on a build server, remind user to
 # set environment variables so that this script can be debugged
 if(-not ($Env:BUILD_SOURCESDIRECTORY -and $Env:BUILD_BUILDNUMBER))
 {
@@ -59,26 +59,25 @@ Write-Verbose "BUILD_BUILDNUMBER: $Env:BUILD_BUILDNUMBER"
 $VersionData = [regex]::matches($Env:BUILD_BUILDNUMBER,$VersionRegex)
 switch($VersionData.Count)
 {
-   0        
-      { 
+   0
+      {
          Write-Error "Could not find version number data in BUILD_BUILDNUMBER."
          exit 1
       }
    1 {}
-   default 
-      { 
-         Write-Warning "Found more than instance of version data in BUILD_BUILDNUMBER." 
+   default
+      {
+         Write-Warning "Found more than instance of version data in BUILD_BUILDNUMBER."
          Write-Warning "Will assume first instance is version."
       }
 }
 $NewVersion = $VersionData[0]
 Write "Version: $NewVersion"
 
-
 # Apply the version to the solution xml
 $VersionRegex = "<Version>\d+\.\d+\.\d+\.\d+</Version>"
 
-$files = gci $Env:BUILD_SOURCESDIRECTORY\Develop1SmartButtons\CrmPackage\package\Other -recurse -include Solution.xml 
+$files = gci $Env:BUILD_SOURCESDIRECTORY\Develop1SmartButtons\CrmPackage\package\Other -recurse -include Solution.xml
 if($files)
 {
     Write-Verbose "Will apply $NewVersion to $($files.count) files."
@@ -88,27 +87,6 @@ if($files)
         $filecontent = Get-Content($file)
         attrib $file -r
         $filecontent -replace $VersionRegex, "<Version>$NewVersion</Version>" | Out-File $file
-        Write "$file - solution version applied"
-    }
-}
-else
-{
-    Write-Warning "Found no files."
-}
-
-# Apply the version to the javascript
-$VersionRegex = "\d+\.\d+\.\d+\.\d+"
-
-$files = gci $Env:BUILD_SOURCESDIRECTORY\Develop1SmartButtons\SmartButtons.ClientHooks\Properties -recurse -include VersionInfo.js
-if($files)
-{
-    Write-Verbose "Will apply $NewVersion to $($files.count) files."
-
-    foreach ($file in $files) {
-        Write "$file"
-        $filecontent = Get-Content($file)
-        attrib $file -r
-        $filecontent -replace $VersionRegex, "$NewVersion" | Out-File $file
         Write "$file - solution version applied"
     }
 }
