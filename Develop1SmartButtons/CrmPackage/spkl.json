@@ -1,64 +1,85 @@
 {
-  "webresources": [
-    {
-      "profile": "default,debug",
-      "root": "dev1_",
-      "solution": "Develop1SmartButtons",
-      "files": [
+    "webresources": [
         {
-          "uniquename": "new_/js/somefile.js",
-          "file": "new_\\js\\somefile.js",
-          "description": ""
-        },
-        {
-          "uniquename": "dev1_/js/develop1_smartbutton_manifest.js",
-          "file": "js\\develop1_smartbutton_manifest.js",
-          "description": ""
-        },
-        {
-          "uniquename": "dev1_/images/quickjs16.png",
-          "file": "images\\quickjs16.png",
-          "description": ""
-        },
-        {
-          "uniquename": "dev1_/images/rundialog16.png",
-          "file": "images\\rundialog16.png",
-          "description": ""
-        },
-        {
-          "uniquename": "dev1_/images/runreport16.png",
-          "file": "images\\runreport16.png",
-          "description": ""
-        },
-        {
-          "uniquename": "dev1_/images/runworkflow16.png",
-          "file": "images\\runworkflow16.png",
-          "description": ""
-        }
-      ]
-    }
-  ],
-  "solutions": [
-    {
-      "profile": "default,debug",
-      "solution_uniquename": "Develop1SmartButtons",
-      "packagepath": "package",
-      "solutionpath": "Develop1SmartButtons_{0}_{1}_{2}_{3}.zip",
-      "packagetype": "managed",
-      "increment_on_import": false,
-      "map": [
+            "profile": "default,debug",
+            "root": "Webresources/dev1_",
+            "solution": "Develop1SmartButtons",
+            "files": [
+                {
+                    "uniquename": "dev1_/js/develop1_smartbutton_manifest.js",
+                    "file": "js\\develop1_smartbutton_manifest.js",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/quickjs16.png",
+                    "file": "images\\quickjs16.png",
+                    "description": ""
+                },
 
-        {
-          "map": "path",
-          "from": "WebResources\\**\\*.*",
-          "to": "..\\WebResources\\**"
-        },
-        {
-          "map": "file",
-          "from": "WebResources\\dev1_\\js\\SmartButtons.ClientHooks.js",
-          "to": "..\\WebResources\\dev1_\\js\\ClientHooks.js"
+                {
+                    "uniquename": "dev1_/images/quickjs.svg",
+                    "file": "images\\quickjs.svg",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/rundialog16.png",
+                    "file": "images\\rundialog16.png",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/runreport16.png",
+                    "file": "images\\runreport16.png",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/runreport.svg",
+                    "file": "images\\runreport.svg",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/runworkflow16.png",
+                    "file": "images\\runworkflow16.png",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/runworkflow.svg",
+                    "file": "images\\runworkflow.svg",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/webhook.png",
+                    "file": "images\\webhook.png",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/webhook.svg",
+                    "file": "images\\webhook.svg",
+                    "description": ""
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ],
+    "solutions": [
+        {
+            "profile": "default,debug",
+            "solution_uniquename": "Develop1SmartButtons",
+            "packagepath": "package",
+            "solutionpath": "Develop1SmartButtons_{0}_{1}_{2}_{3}.zip",
+            "packagetype": "managed",
+            "increment_on_import": false,
+            "map": [
+
+                {
+                    "map": "path",
+                    "from": "WebResources\\**\\*.*",
+                    "to": "..\\WebResources\\**"
+                },
+                {
+                    "map": "file",
+                    "from": "WebResources\\dev1_\\js\\SmartButtons.ClientHooks.js",
+                    "to": "..\\..\\..\\SmartButtonsUCI\\SmartButtons.ClientHooks\\dist\\SmartButtons.ClientHooks.js"
+                }
+            ]
+        }
+    ]
 }

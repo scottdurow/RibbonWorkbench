@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <WebResourceId>{b2227ce9-64b5-e611-81c5-0800278d9765}</WebResourceId>
-  <Name>dev1_/js/develop1_smartbutton_manifest.js</Name>
-  <DisplayName>dev1_/js/develop1_smartbutton_manifest.js</DisplayName>
-  <WebResourceType>3</WebResourceType>
-  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>{bd69bba3-a61e-ea11-a810-000d3ab39933}</WebResourceId>
+  <Name>dev1_/images/runworkflow.svg</Name>
+  <DisplayName>dev1_/images/runworkflow.svg</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>1.2</IntroducedVersion>
   <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
   <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
   <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
   <IsCustomizable>1</IsCustomizable>
   <CanBeDeleted>1</CanBeDeleted>
   <IsHidden>0</IsHidden>
-  <FileName>/WebResources/dev1_jsdevelop1_smartbutton_manifestjsB2227CE9-64B5-E611-81C5-0800278D9765</FileName>
+  <FileName>/WebResources/dev1_imagesrunworkflowsvgBD69BBA3-A61E-EA11-A810-000D3AB39933</FileName>
 </WebResource>

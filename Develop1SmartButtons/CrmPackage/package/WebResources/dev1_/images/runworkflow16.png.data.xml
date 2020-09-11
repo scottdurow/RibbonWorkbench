@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WebResource>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <WebResourceId>{1d1a01b9-f707-e711-81eb-00155d38010a}</WebResourceId>
   <Name>dev1_/images/runworkflow16.png</Name>
   <DisplayName>dev1_/images/runworkflow16.png</DisplayName>
