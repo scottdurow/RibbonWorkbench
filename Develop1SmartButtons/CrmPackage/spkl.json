@@ -77,7 +77,7 @@
                 {
                     "map": "file",
                     "from": "WebResources\\dev1_\\js\\SmartButtons.ClientHooks.js",
-                    "to": "..\\..\\..\\SmartButtonsUCI\\SmartButtons.ClientHooks\\dist\\out\\SmartButtons.ClientHooks.js"
+                    "to": "..\\..\\..\\SmartButtonsUCI\\SmartButtons.ClientHooks\\dist\\SmartButtons.ClientHooks.js"
                 }
             ]
         }
