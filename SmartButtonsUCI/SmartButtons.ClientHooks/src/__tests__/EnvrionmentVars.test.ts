@@ -41,3 +41,15 @@ test("Query", async () => {
   const tokenisedText = await tokeniseString(value);
   expect(tokenisedText).toBe("ABC123");
 });
+
+test("NoQuery", async () => {
+  // When there are no envrionment variables to replace, don't query
+  const value = "some_value";
+
+  const retrieveImplementation = jest.fn().mockImplementation();
+  Xrm.WebApi.retrieveMultipleRecords = retrieveImplementation;
+  const tokenisedText = await tokeniseString(value);
+  expect(tokenisedText).toBe("some_value");
+
+  expect(retrieveImplementation).toHaveBeenCalledTimes(0);
+});

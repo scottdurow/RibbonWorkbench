@@ -64,8 +64,10 @@ export async function tokeniseString(text: string): Promise<string> {
   const envVarNames = extractVariables(text);
 
   // Query the variables
-  const envVarValues = await getEnvrionmentVariable(envVarNames);
+  if (envVarNames.length > 0) {
+    const envVarValues = await getEnvrionmentVariable(envVarNames);
 
-  // Replace
-  return replaceVars(text, envVarValues);
+    // Replace
+    return replaceVars(text, envVarValues);
+  } else return text;
 }
