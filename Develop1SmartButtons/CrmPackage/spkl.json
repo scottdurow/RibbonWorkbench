@@ -55,6 +55,17 @@
                     "uniquename": "dev1_/images/webhook.svg",
                     "file": "images\\webhook.svg",
                     "description": ""
+                },
+                {
+                    "uniquename": "dev1_/images/opendialog.svg",
+                    "file": "images\\opendialog.svg",
+                    "description": ""
+                },
+                {
+                    "uniquename": "dev1_/html/canvasapp_dialog.html",
+                    "file": "html\\canvasapp_dialog.html",
+                    "displayname": "Please Wait",
+                    "description": ""
                 }
             ]
         }

@@ -1081,6 +1081,285 @@
                 "Precision": 0
             }
         ]
+    },
+
+    {
+        "ControlType": 0,
+        "__type": "ButtonControl",
+        "Id": "smartbutton.opendialog",
+        "Image16by16": "$webresource:dev1_/images/rundialog16.png",
+        "LabelTextText": "Open Dialog",
+        "Labels": [],
+        "smartButtonId": "opendialog",
+        "definitions": [
+            {
+                "validOnForm": true,
+                "validOnHomePageGrid": false,
+                "validOnSubGrid": false,
+                "template": {
+                    "Control": {
+                        "ControlType": 0,
+                        "__type": "ButtonControl",
+                        "Id": "dev1.EntityDisplayName.OpenDialogForm.Button",
+                        "Image16by16": "$webresource:dev1_/images/rundialog16.png",
+                        "ModernImage": "$webresource:dev1_/images/opendialog.svg",
+                        "LabelTextText": "Open Dialog",
+                        "Labels": [],
+                        "TemplateAlias": "o1",
+                        "PopulateOnlyOnce": false
+                    },
+                    "CommandDefinition": {
+                        "Id": "dev1.EntityDisplayName.OpenDialogForm.Command",
+                        "Labels": [],
+                        "Actions": [
+                            {
+                                "__type": "JavascriptFunctionCommandAction",
+                                "Parameters": [
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 2
+                                    },
+                                    {
+                                        "__type": "StringParameter",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "__type": "IntParameter",
+                                        "Value": 470
+                                    },
+                                    {
+                                        "__type": "IntParameter",
+                                        "Value": 350
+                                    },
+                                    {
+                                        "__type": "StringParameter",
+                                        "Value": "Title"
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 4
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 9
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 22
+                                    }
+                                ],
+                                "FunctionName": "SmartButtons.ClientHooks.SmartButtons.OpenDialog",
+                                "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
+                            }
+                        ],
+                        "DisplayRuleIds": [],
+                        "EnableRuleIds": []
+                    },
+                    "DisplayRules": [],
+                    "EnableRules": []
+                },
+                "propertyExpressions": [
+                    {
+                        "name": "$button.LabelTextText",
+                        "value": "$data.Title"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[1].Value",
+                        "value": "$data.dialogurl"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[2].Value",
+                        "value": "$data.width"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[3].Value",
+                        "value": "$data.height"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[4].Value",
+                        "value": "$data.title"
+                    }
+
+                ]
+            },
+            {
+                "validOnForm": false,
+                "validOnHomePageGrid": true,
+                "validOnSubGrid": true,
+                "template": {
+                    "Control": {
+                        "__type": "ButtonControl",
+                        "Id": "dev1.EntityDisplayName.OpenDialogGrid.Button",
+                        "Labels": [],
+                        "CommandCore": "dev1.EntityDisplayName.OpenDialogGrid.Command",
+                        "ControlType": 0,
+                        "Image16by16": "$webresource:dev1_/images/rundialog16.png",
+                        "Image32by32": null,
+                        "LabelTextText": "Open Dialog",
+                        "TemplateAlias": "o1",
+                        "ToolTipDescriptionText": null,
+                        "ToolTipTitleText": null,
+                        "AltText": null,
+                        "ModernImage": "$webresource:dev1_/images/opendialog.svg",
+                        "Description": null
+                    },
+                    "CommandDefinition": {
+                        "Id": "dev1.EntityDisplayName.OpenDialogGrid.Command",
+                        "Labels": [],
+                        "Actions": [
+                            {
+                                "__type": "JavascriptFunctionCommandAction",
+                                "Parameters": [
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 11
+                                    },
+                                    {
+                                        "__type": "StringParameter",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "__type": "IntParameter",
+                                        "Value": 470
+                                    },
+                                    {
+                                        "__type": "IntParameter",
+                                        "Value": 350
+                                    },
+                                    {
+                                        "__type": "StringParameter",
+                                        "Value": "Title"
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 4
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 9
+                                    },
+                                    {
+                                        "__type": "CrmParameter",
+                                        "Value": 22
+                                    }
+                                ],
+                                "FunctionName": "SmartButtons.ClientHooks.SmartButtons.OpenDialog",
+                                "Library": "$webresource:dev1_/js/SmartButtons.ClientHooks.js"
+                            }
+                        ],
+                        "DisplayRuleIds": [],
+                        "EnableRuleIds": [
+                            "Mscrm.SelectionCountExactlyOne"
+                        ]
+                    },
+                    "DisplayRules": [],
+                    "EnableRules": [
+                        {
+                            "Id": "Mscrm.SelectionCountExactlyOne",
+                            "Labels": [],
+                            "IsCore": true,
+                            "Steps": [],
+                            "__type": "EnableRule" 
+                        }
+                    ]
+                },
+                "propertyExpressions": [
+                    {
+                        "name": "$button.LabelTextText",
+                        "value": "$data.Title"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[1].Value",
+                        "value": "$data.dialogurl"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[2].Value",
+                        "value": "$data.width"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[3].Value",
+                        "value": "$data.height"
+                    },
+                    {
+                        "name": "$command.Actions()[0].Parameters()[4].Value",
+                        "value": "$data.title"
+                    }
+
+                ]
+            }
+        ],
+        "editableProperties": [
+            {
+                "Label": "Title",
+                "Value": null,
+                "ColSpan": 2,
+                "FieldName": "Title",
+                "PropertyType": "text",
+                "onlyOnCreate": true,
+                "Options": null,
+                "QueryCommand": null,
+                "IdAttribute": null,
+                "NameAttribute": null,
+                "Disable": false,
+                "Precision": 0
+            },
+            {
+                "Label": "Dialog Url (copy from canvas app details)",
+                "Value": null,
+                "ColSpan": 2,
+                "FieldName": "dialogurl",
+                "PropertyType": "text",
+                "onlyOnCreate": false,
+                "Options": null,
+                "QueryCommand": null,
+                "IdAttribute": null,
+                "NameAttribute": null,
+                "Disable": false,
+                "Precision": 0
+            },
+            {
+                "Label": "Width (e.g. 470)",
+                "Value": 200,
+                "ColSpan": 1,
+                "FieldName": "width",
+                "PropertyType": "numeric",
+                "onlyOnCreate": false,
+                "Options": null,
+                "QueryCommand": null,
+                "IdAttribute": null,
+                "NameAttribute": null,
+                "Disable": false,
+                "Precision": 0
+            },
+            {
+                "Label": "Height (e.g. 350)",
+                "Value": 300,
+                "ColSpan": 1,
+                "FieldName": "height",
+                "PropertyType": "numeric",
+                "onlyOnCreate": false,
+                "Options": null,
+                "QueryCommand": null,
+                "IdAttribute": null,
+                "NameAttribute": null,
+                "Disable": false,
+                "Precision": 0
+            },
+            {
+                "Label": "Title (leave empty to hide header)",
+                "Value": "",
+                "ColSpan": 2,
+                "FieldName": "title",
+                "PropertyType": "text",
+                "onlyOnCreate": false,
+                "Options": null,
+                "QueryCommand": null,
+                "IdAttribute": null,
+                "NameAttribute": null,
+                "Disable": false,
+                "Precision": 0
+            }
+        ]
     }
 
 ]

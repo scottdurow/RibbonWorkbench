@@ -4,7 +4,9 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "@types/xrm": "^9.0.23"
+    "@types/querystringify": "^2.0.0",
+    "@types/xrm": "^9.0.23",
+    "querystringify": "^2.2.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
