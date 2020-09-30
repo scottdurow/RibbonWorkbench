@@ -60,7 +60,6 @@ export async function getEnvrionmentVariable(schemanames: string[]): Promise<Rec
 }
 
 export async function tokeniseString(text: string): Promise<string> {
-  debugger;
   const envVarNames = extractVariables(text);
 
   // Query the variables

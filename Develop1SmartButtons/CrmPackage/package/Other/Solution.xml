@@ -80,6 +80,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="61" schemaName="dev1_/html/canvasapp_dialog.html" behavior="0" />
+      <RootComponent type="61" schemaName="dev1_/images/opendialog.svg" behavior="0" />
       <RootComponent type="61" schemaName="dev1_/images/quickjs.svg" behavior="0" />
       <RootComponent type="61" schemaName="dev1_/images/quickjs16.png" behavior="0" />
       <RootComponent type="61" schemaName="dev1_/images/rundialog16.png" behavior="0" />
