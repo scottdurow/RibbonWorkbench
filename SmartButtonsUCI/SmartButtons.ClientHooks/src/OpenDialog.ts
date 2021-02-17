@@ -48,6 +48,7 @@ export async function OpenDialog(
     width: width ?? 420,
     height: height ?? 280,
     position: 1,
+    title: dataParameters.showHeader ? dataParameters.dialogTitle : " ",
   } as Xrm.Navigation.NavigationOptions;
 
   // Open the dialog and wait for it to close
@@ -65,17 +66,6 @@ export function AddCanvasAppIframe(): void {
   // Get the data parameters
   const parameters = querystringify.parse(window.location.search) as { data: string };
   const dataParmeters = JSON.parse(decodeURIComponent(parameters.data));
-
-  // Change the name of the dialog
-  if (parent && parent.document) {
-    if (!dataParmeters.showHeader) {
-      const chromeHeader = parent.document.getElementById("defaultDialogChromeHeader");
-      if (chromeHeader) chromeHeader.style.display = "none";
-    } else {
-      const titleElement = parent.document.getElementById("defaultDialogChromeTitle");
-      if (titleElement) titleElement.innerText = dataParmeters.dialogTitle;
-    }
-  }
 
   const recordId = normaliseGuid(dataParmeters.id);
   const recordLogicalName = dataParmeters.logicalName;

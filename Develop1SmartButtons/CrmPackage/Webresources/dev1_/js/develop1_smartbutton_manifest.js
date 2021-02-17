@@ -1346,7 +1346,7 @@
                 "Precision": 0
             },
             {
-                "Label": "Title (leave empty to hide header)",
+                "Label": "Dialog Title",
                 "Value": "",
                 "ColSpan": 2,
                 "FieldName": "title",
