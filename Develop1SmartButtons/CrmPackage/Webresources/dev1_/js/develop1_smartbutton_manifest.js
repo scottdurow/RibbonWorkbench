@@ -1304,7 +1304,7 @@
                 "Precision": 0
             },
             {
-                "Label": "Dialog Url (copy from canvas app details)",
+                "Label": "Dialog Url (copy from canvas app details) or Custom Page Unique Name",
                 "Value": null,
                 "ColSpan": 2,
                 "FieldName": "dialogurl",
@@ -1332,7 +1332,7 @@
                 "Precision": 0
             },
             {
-                "Label": "Height (e.g. 350)",
+                "Label": "Height (e.g. 350) or 0 for side-bar",
                 "Value": 300,
                 "ColSpan": 1,
                 "FieldName": "height",
