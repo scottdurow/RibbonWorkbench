@@ -22,7 +22,7 @@ function getParameters(
   const isGridContext = (selectedContext as Xrm.Controls.GridControl).getEntityName != undefined;
   const isFormContext = (primaryContext as Xrm.FormContext).data != undefined;
   const dataParameters = {
-    id: entityId,
+    id: normaliseGuid(entityId),
     logicalName: isGridContext
       ? (selectedContext as Xrm.Controls.GridControl).getEntityName()
       : (selectedContext as Xrm.FormContext).data.entity.getEntityName(),
