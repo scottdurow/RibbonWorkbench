@@ -1,0 +1,28 @@
+# _config.yml
+
+# Site settings
+title: Ribbon Workbench Knowledge Base
+description: KB articles for the Ribbon Workbench
+baseurl: "" # the subpath of your site, e.g. /blog
+# url: "https://yourdomain.com" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-toc
+
+# jekyll-toc settings
+toc:
+  min_level: 1
+  max_level: 6
+  no_toc_section_class: "no_toc"
+  list_type: "ul"
+  list_class: "toc-list"
+  sublist_class: "toc-sublist"
+
+# Other settings
+kramdown:
+  input: GFM
